@@ -1,0 +1,103 @@
+.life-saving-feature{
+    margin-top: 5% !important;
+    margin-bottom: 5%;
+}
+/* ===================================================== */
+.download-section {
+    background-color: #ffc7c7;
+    padding: 50px 0;
+  }
+  
+  .download-section .animated {
+    animation-duration: 1s;
+  }
+  
+  .download-section .fadeIn {
+    animation-name: fadeIn;
+  }
+  
+  .download-section .fadeInLeft {
+    animation-name: fadeInLeft;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .btn-app-store {
+    margin-right: 10px;
+  }
+  
+  .btn-google-play {
+    margin-left: 10px;
+  }
+  .btn-app-store img, .btn-google-play img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-app-store img:hover, .btn-google-play img:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  /* ============================================================================================================================================================================================== */
+  .arrow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .arrow-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .arrow-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 18px;
+    color: #d02727; /* You can change the color as per your requirement */
+  }
+  /* ================ Download image ==================== */
+  
+  .download-image{
+    border-radius: 15px;
+  }
+  .download-image-content{
+    /* align-items: center; */
+    margin-top: 5% !important;
+  }
+
+  /* =================== Responsive css =========================== */
+  .accordion-button::after {
+    background-image: none;
+  }
+  .accordion-button[aria-expanded="true"]::after {
+    content: "-"; 
+  }
+  .accordion-button[aria-expanded="false"]::after {
+    content: "+"; 
+  }
+
+
+  /* =========== be a hero =============== */
+  

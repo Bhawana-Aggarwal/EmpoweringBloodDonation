@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>Blood Donate</title>
+
+    <!-- Loading Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Template CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/pe-icon-7-stroke.css">
+    <link href="assets/css/style-magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- Awsome Fonts -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- ------- Bootstrap 5 CDN link -------------- -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" /> 
+    <style>
+        /* Style for the circle animation container */
+        .circle-container {
+            display: inline-block;
+            position: relative;
+            width: 150px;
+            /* Set width for the container */
+            height: 150px;
+            /* Set height for the container */
+            overflow: hidden;
+            border-radius: 50%;
+            /* Make the container circular */
+
+
+        }
+
+        /* Image style with animation */
+        .circle-animated-image {
+            position: absolute;
+            width: 80%;
+            /* Image takes up the full container */
+            height: 80%;
+            /* Image takes up the full container */
+            animation: rotate-circle 4s infinite linear;
+            /* Apply circular rotation */
+            object-fit: cover;
+            /* Ensure the image fits within the circle */
+            margin-left: -40%;
+        }
+
+        /* Keyframes for circular rotation */
+        @keyframes rotate-circle {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Image style with animation */
+        .pulse-animated-image {
+            display: block;
+            margin: 0 auto;
+            width: 90px;
+            /* Adjust image size */
+            height: 90px;
+            border-radius: 50%;
+            /* Optional: makes the image circular */
+            object-fit: cover;
+            /* Ensures the image fits nicely */
+            animation: pulse 1s infinite ease-in-out;
+            /* Apply pulse animation */
+        }
+
+        /* Keyframes for pulsing effect */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                /* Normal size */
+            }
+
+            50% {
+                transform: scale(1.1);
+                /* Slightly zoomed in */
+            }
+
+            100% {
+                transform: scale(1);
+                /* Back to normal size */
+            }
+        }
+
+        .animated-service-image {
+            display: block;
+            margin: 0 auto;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            /* Ensures the image looks nice */
+            border-radius: 50%;
+            /* Optional circular shape */
+            animation: continuousAnimation 3s ease-in-out infinite;
+            /* Continuous animation loop */
+            transition: transform 0.8s ease, box-shadow 0.3s ease;
+            /* Smooth hover effect */
+        }
+
+        /* Hover effect */
+        .animated-service-image:hover {
+            transform: scale(1.1);
+            /* Slight zoom on hover */
+            /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
+            /* Add shadow on hover */
+        }
+
+        /* Continuous animation keyframes */
+        @keyframes continuousAnimation {
+            0% {
+                transform: translateY(0) scale(1);
+                /* Starting position */
+            }
+
+            25% {
+                transform: translateY(0px) scale(1.05);
+                /* Move up slightly and scale up */
+            }
+
+            50% {
+                transform: translateY(0) scale(0.95);
+                /* Return to the original position */
+            }
+
+            75% {
+                transform: translateY(15px) scale(0.15);
+                /* Move down slightly and scale down */
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+                /* Return to the starting position */
+            }
+        }
+
+        /* to animate why donate blood  */
+        @keyframes slideInOut {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            30% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            60% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* to animate we believe that individual  */
+        .section-subtitle {
+            font-size: 24px;
+            color: white;
+            /* Text color */
+            white-space: nowrap;
+            /* Prevent text from wrapping */
+            overflow: hidden;
+            /* Hide overflow to create a masking effect */
+            border-right: 2px solid white;
+            /* Create a cursor effect */
+            animation: typing 10s steps(50, end) infinite alternate, blink-caret 0.75s step-end infinite;
+            background: linear-gradient(90deg, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.1));
+            background-size: 200% 100%;
+            animation: typing 5s steps(50, end), glow 1.5s infinite alternate;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+
+            50% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+                /* Reset to 0 to create an infinite loop */
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-right: 2px solid transparent;
+            }
+
+            50% {
+                border-right: 2px solid white;
+            }
+        }
+
+        @media (max-width: 750px) {
+            .savelife_img {
+                display: none !important;
+            }
+        }
+    </style>
+
+    <!-- ===================================================================================================================================== -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,700" rel="stylesheet">
+
+    <!-- Font Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <!--begin header -->
+    <header class="header fixed-top">
+
+        <!--begin navbar-fixed-top -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <!--begin container -->
+            <div class="container">
+
+                <!--begin navbar -->
+                <nav class="navbar navbar-expand-lg ">
+
+                    <!--begin logo -->
+                    <a class="navbar-brand" href="#">Blood Donate</a>
+                    <!--end logo -->
+
+                    <!--begin navbar-toggler -->
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                    </button>
+                    <!--end navbar-toggler -->
+
+                    <!--begin navbar-collapse -->
+                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+
+                        <!--begin navbar-nav -->
+                        <ul class="navbar-nav ml-auto">
+
+                            <li><a href="#home">Home</a></li>
+
+                            <li><a href="#typesofblood">About</a></li>
+
+                            <li><a href="#features">Features</a></li>
+
+                            <!-- <li><a href="#team">NGO's</a></li> -->
+
+                            <li><a href="#showcase">Camps</a></li>
+
+                            <!-- <li><a href="#pricing">Pricing</a></li> -->
+
+                            <li><a href="#blog">Our Donors</a></li>
+
+                            <li class="discover-link"><a href="/signup" class="external discover-btn">Get Started!</a>
+                            </li>
+
+                            <li class="discover-link"><a href="/ngo/ngo_login" class="external discover-btn">NGO
+                                    Login</a></li>
+                        </ul>
+                        <!--end navbar-nav -->
+                    </div>
+                    <!--end navbar-collapse -->
+                </nav>
+                <!--end navbar -->
+            </div>
+            <!--end container -->
+        </nav>
+        <!--end navbar-fixed-top -->
+
+    </header>
+    <!--end header -->
+
+    <!--begin home section -->
+    <section class="home-section" id="home">
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-5-->
+                <div class="col-md-5 padding-top-20">
+
+                    <h1>Blood Donate</h1>
+
+                    <p>We believe that every individual has the power to save a life. Our mission is to
+                        connect generous blood donors with patients in need of a blood transfusion.</p>
+
+                    <!--begin newsletter_form_box -->
+
+                    <!--end newsletter_form_box -->
+
+                    <!--begin benefits -->
+                    <ul class="home-benefits">
+
+                        <li><i class="pe-7s-check"></i>Find nearby blood donation camps and centers.</li>
+
+                        <li><i class="pe-7s-check"></i>Get notified about blood donation drives and events.</li>
+
+                        <li><i class="pe-7s-check"></i>Help save lives by donating blood to those in need.</li>
+
+                    </ul>
+                    <div class="newsletter_hero_form_box">
+
+                        <p class="newsletter_hero_success_box" style="display:none;">Thank you for your interest in
+                            Blood Donate! We'll be in touch soon.</p>
+
+                        <div id="newsletter-hero-form" class="newsletter-hero-form">
+                            <a href="/signup">
+                                <input type="submit" value="REGISTER AS A DONOR" id="submit-button-hero-newsletter">
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!--end col-md-5-->
+
+                <!--begin col-md-7-->
+                <div class="col-md-7 margin-top-20">
+
+                    <!--begin video-popup-wrapper-->
+                    <div class="video-popup-wrapper margin-left-20">
+
+                        <!--begin popup-gallery-->
+                        <div class="popup-gallery">
+
+                            <!-- <img src="assets/images/hero-img2.jpg" class="width-100 hero-images" alt="pic"> -->
+                            <!-- <a class="popup4 video-play-icon" href="https://youtu.be/Yxql1GVPJVk?si=irTlF0Gvo2FZgktT">
+                                <i class="fas fa-play"></i>
+                            </a> -->
+                            <!-- <iframe src="https://youtube.com/shorts/ArFWErXQchE?si=B00jlPJPPoY7mIse" width="300px" height="400px" frameborder="0" ></iframe> -->
+                            <div style="overflow: hidden; border-radius: 15px; width: 560px; height: 315px;">
+                                <iframe width="560" height="315"
+                                    src="https://www.youtube.com/embed/kOISEM6L4xk?autoplay=1&loop=1&playlist=kOISEM6L4xk&controls=0&modestbranding=1&rel=0&cc_load_policy=0"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen autoplay>
+                                </iframe>
+                            </div>
+                        </div>
+                        <!--end popup-gallery-->
+
+                    </div>
+                    <!--end video-popup-wrapper-->
+
+                </div>
+                <!--end col-md-7-->
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end home section -->
+
+    <!--begin section-white -->
+    <section class="section-white section-top-border why-donate">
+
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center">
+
+                    <h2 class="section-title" style="
+                        display: inline-block;
+                        animation: slideInOut 5s ease-in-out forwards infinite;
+                        white-space: nowrap;
+                        ">
+                        Why Donate Blood?
+                    </h2>
+
+                    <p class="section-subtitle">we believe that every individual has the power to save a life.</p>
+                </div>
+                <!--end col-md-12 -->
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+        <!--begin services-wrapper -->
+        <div class="services-wrapper">
+
+            <!--begin container -->
+            <div class="container">
+
+                <!--begin row -->
+                <div class="row">
+
+                    <!--begin col-md-4 col-sm-6 col-xs-12 -->
+                    <!-- <div class="col-md-4 col-sm-6 col-xs-12">
+
+                        <div class="main-services">
+
+                            <img src="assets/images/cancer.PNG" alt="pic">
+
+                            <h3>Surgery or Cancer</h3>
+
+                            <p>Help patients undergoing surgery or receiving treatment for cancer</p>
+
+                        </div>
+
+                    </div> -->
+                    <!--end col-md-4 col-sm-6 col-xs-12 -->
+
+
+
+
+                    <!--begin col-md-4 col-sm-6 col-xs-12 -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="main-services">
+                            <img src="assets/images/sickel cell.PNG" alt="pic" class="pulse-animated-image">
+                            <h3>Sickle Cell Disease</h3>
+                            <p>Support patients with blood disorders, sickle cell disease</p>
+                        </div>
+                    </div>
+
+
+
+                    <!--end col-md-4 col-sm-6 col-xs-12 -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="main-services">
+                            <div class="circle-container">
+                                <img src="assets/images/cancer.PNG" alt="pic" class="animated-service-image">
+                            </div>
+                            <h3>Surgery or Cancer</h3>
+                            <p>Help patients undergoing surgery or receiving treatment for cancer</p>
+                        </div>
+                    </div>
+
+                    <!--begin col-md-4 col-sm-6 col-xs-12 -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="main-services">
+                            <img src="assets/images/accident.jpg" alt="pic" class="pulse-animated-image">
+                            <h3>Disasters or Accidents</h3>
+                            <p>Aid in emergency situations, such as natural disasters or accidents</p>
+                        </div>
+                    </div>
+                    <!--end col-md-4 col-sm-6 col-xs-12 -->
+
+                </div>
+                <!--end row -->
+
+            </div>
+            <!--end container -->
+
+        </div>
+        <!--end services-wrapper -->
+
+    </section>
+    <!--end section-white -->
+
+    <!--begin section-grey -->
+    <div id="typesofblood"></div>
+    <section class="section-grey section-top-border">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- Left Column - Moves Left to Right -->
+                <div class="col-md-6 margin-top-20 animation-LR">
+                    <h3>Share Blood, Save Life</h3>
+                    <p class="margin-bottom-40">We strive to make blood donation a convenient and rewarding experience
+                        for our donors while ensuring that patients receive the blood they need to live.</p>
+
+                    <div class="nav flex-column nav-pills margin-right-25" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+
+                        <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                            aria-controls="v-pills-home" aria-selected="true">
+                            <div class="features-second">
+                                <div class="dropcaps-circle">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4 class="margin-bottom-5">Whole Blood Donation</h4>
+                                <p>This is the most common type of blood donation, where a pint of blood is collected
+                                    from the donor.</p>
+                            </div>
+                        </a>
+
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                            <div class="features-second">
+                                <div class="dropcaps-circle">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h4 class="margin-bottom-5">Platelet Donation</h4>
+                                <p>Platelets help wounds clot. Platelet donors can donate every 7-10 days.</p>
+                            </div>
+                        </a>
+
+                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
+                            role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                            <div class="features-second">
+                                <div class="dropcaps-circle">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4 class="margin-bottom-5">Plasma Donation</h4>
+                                <p>Plasma carries proteins & antibodies. Plasma donors can donate every 28 days.</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Right Column - Moves Right to Left -->
+                <div class="col-md-6 animation-RL">
+                    <div class="tab-content margin-left-20" id="v-pills-tabContent">
+                        <img src="assets/images/savelife.jpg" alt="pic"
+                            style="height: 600px; width: 100%; border-radius: 5px; box-shadow:  #d86868 2px 5px 2px 1px;"
+                            class="savelife_img">
+                        <!-- <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                            aria-labelledby="v-pills-home-tab">
+                            <img src="assets/images/savelife.jpg" class="width-100" alt="pic">
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                            aria-labelledby="v-pills-profile-tab">
+                            <img src="assets/images/iphone-1b.png" class="width-100" alt="pic">
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                            aria-labelledby="v-pills-messages-tab">
+                            <img src="assets/images/iphone-1c.png" class="width-100" alt="pic">
+                        </div> -->
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!--end section-grey -->
+
+    <!--begin partners section -->
+
+    <!--end partners section -->
+
+    <!--begin newsletter section -->
+    <section class="section-blue small-paddings" id="newsletter-section">
+
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center padding-top-50 padding-bottom-20">
+
+                    <h3 class="white-text">Stay updated on our latest events, campaigns, and news by entering your email
+                        address below. We'll keep you informed about our blood donation drives, awareness campaigns, and
+                        volunteer opportunities.</h3>
+
+                </div>
+                <!--end col-md-12 -->
+
+                <!--begin col-md-12-->
+                <div class="col-md-12 padding-bottom-40">
+
+                    <!--begin newsletter_form_wrapper -->
+                    <div class="newsletter_form_wrapper" data-wow-delay="0.25s">
+
+                        <!--begin newsletter_form_box -->
+                        <div class="newsletter_form_box">
+
+                            <!--begin success_box -->
+                            <p class="newsletter_success_box" style="display:none;">We received your message and you'll
+                                hear from us soon. Thank You!</p>
+                            <!--end success_box -->
+
+                            <!--begin newsletter-form -->
+                            <div id="newsletter-form" class="newsletter-form">
+                                <input id="email_newsletter" type="email" name="nf_email"
+                                    placeholder="Enter Your Email Address">
+                                <a href="/signup">
+                                    <input type="submit" value="GET STARTED!" id="submit-button-newsletter">
+                                </a>
+                            </div>
+                            <!--end newsletter-form -->
+
+                        </div>
+                        <!--end newsletter_form_box -->
+
+                    </div>
+                    <!--end newsletter_form_wrapper -->
+
+                </div>
+                <!--end col-md-12 -->
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end newsletter section -->
+
+    <!--begin features section -->
+    <!--begin container -->
+    <div id="features"></div>
+    <section class="container life-saving-feature">
+
+        <!--begin row -->
+        <div class="row">
+
+            <!--begin col-md-12-->
+            <div class="col-md-12 text-center padding-bottom-10">
+
+                <h2 class="section-title">Life-Saving Features</h2>
+
+                <p class="section-subtitle">Donate blood with ease and make a difference in the lives of those in need.
+                </p>
+
+            </div>
+            <!--end col-md-12 -->
+
+        </div>
+        <!--end row -->
+
+        <!--begin row -->
+        <div class="row">
+
+            <!--begin col-md-4-->
+            <div class="col-sm-6 col-md-4 feature-box">
+                <i class="fas fa-heartbeat"></i>
+                <h4>Easy Registration</h4>
+                <p>Sign up to become a blood donor in just a few clicks and help save lives.</p>
+            </div>
+
+            <div class="col-sm-6 col-md-4 feature-box">
+                <i class="fas fa-medkit"></i>
+                <h4>Convenient Donation Process</h4>
+                <p>Our streamlined process makes it easy to donate blood and get back to your day.</p>
+            </div>
+
+            <div class="col-sm-6 col-md-4 feature-box">
+                <i class="fas fa-info-circle"></i>
+                <h4>Education and Awareness</h4>
+                <p>Learn about the importance of blood donation and how you can make a difference.</p>
+            </div>
+
+            <div class="col-sm-6 col-md-4 feature-box">
+                <i class="fas fa-users"></i>
+                <h4>Community Support</h4>
+                <p>Join a community of like-minded individuals who are passionate about giving back.</p>
+            </div>
+
+            <div class="col-sm-6 col-md-4 feature-box">
+                <i class="fas fa-gift"></i>
+                <h4>Reward and Recognition</h4>
+                <p>Get rewarded for your selfless act of donating blood and receive recognition for your contributions.
+                </p>
+            </div>
+
+            <div class="col-sm-6 col-md-4 feature-box">
+                <i class="fas fa-phone"></i>
+                <h4>24/7 Support</h4>
+                <p>Get assistance whenever you need it with our dedicated support team.</p>
+            </div>
+
+        </div>
+
+
+    </section>
+    <!--end container -->
+    <!--end features section -->
+
+    <!--begin section-white -->
+    <!--begin container-->
+    <section class="container-fluid px-0">
+
+        <!--begin row-->
+        <div class="row no-gutters">
+
+            <!--begin col-md-6-->
+            <div class="col-md-6">
+
+                <img src="assets/images/faq image.jpg" class="width-100 " alt="Blood Donation">
+
+            </div>
+            <!--end col-sm-6-->
+
+            <!--begin col-md-6-->
+            <div class="col-md-6">
+
+                <!--begin small-column-inside-->
+                <div class="small-col-inside">
+
+                    <h3 class="mt-sm-3 mt-md-0">FAQ's Related Blood Donation</h3>
+
+                    <!--begin accordion -->
+                    <div class="accordion" id="accordionFAQ">
+
+                        <!--begin card -->
+                        <div class="card">
+
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What is the process of blood donation?
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionFAQ">
+                                <div class="card-body">
+                                    The process of blood donation is simple and safe. It involves registration, medical
+                                    screening, and the actual donation process. The entire process typically takes about
+                                    an hour.
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end card -->
+
+                        <!--begin card -->
+                        <div class="card">
+
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Who is eligible to donate blood?
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionFAQ">
+                                <div class="card-body">
+                                    To be eligible to donate blood, you must be at least 17 years old, weigh at least
+                                    110 pounds, and be in good overall health. You must also pass a medical screening
+                                    and meet certain other requirements.
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end card -->
+
+                        <!--begin card -->
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        How often can I donate blood?
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#accordionFAQ">
+                                <div class="card-body">
+                                    You can donate whole blood every 56 days, or approximately every 8 weeks. You can
+                                    also donate platelets every 7 days, and plasma every 28 days.
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end card -->
+
+                        <!--begin card -->
+                        <div class="card">
+
+                            <div class="card-header" id="headingFour">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        What are the benefits of donating blood?
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                data-parent="#accordionFAQ">
+                                <div class="card-body">
+                                    Donating blood can help save lives, and it also has several benefits for the donor,
+                                    including free medical screening, a sense of satisfaction and fulfillment, and the
+                                    opportunity to make a difference in the community.
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end card -->
+
+                    </div>
+                    <!--end accordion -->
+
+                </div>
+                <!--end small-column-inside-->
+
+            </div>
+            <!--end col-sm-6-->
+
+        </div>
+        <!--end row-->
+
+    </section>
+    <!--end container-->
+    <!--end section-white -->
+
+    <!--begin team section -->
+    <section class="section-grey section-top-border" id="team">
+
+        <!--begin container-->
+        <div class="container">
+
+            <!--begin row-->
+            <div class="row">
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center">
+
+                    <h2 class="section-title">The NGO's Behind Saksetu Blood Donation</h2>
+
+                    <p class="section-subtitle">Our dedicated [NGO Name] is committed to making a difference in the
+                        lives of those in need of blood donations.</p>
+
+                </div>
+                <!--end col-md-12 -->
+
+                <!--begin team-item -->
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="team-item">
+
+                        <img src="assets/images/team1.jpg" class="team-img" alt="pic">
+
+                        <h3>[CEO Name]</h3>
+
+                        <div class="team-info">
+                            <p>Head of [NGO Name]</p>
+                        </div>
+
+                        <p>[CEO Name] is the founder and driving force behind [NGO Name], with a passion for saving
+                            lives through blood donations.</p>
+
+                        <!-- <ul class="team-icon">
+                            
+                            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                                
+                            <li><a href="#" class="pinterest"><i class="fab fa-pinterest"></i></a></li>
+                                
+                            <li><a href="#" class="facebook"><i class="fab fa-linkedin-in"></i></a></li>
+                                
+                            <li><a href="#" class="dribble"><i class="fab fa-dribbble"></i></a></li>
+                                
+                        </ul> -->
+
+                    </div>
+
+                </div>
+                <!--end team-item -->
+
+                <!--begin team-item -->
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="team-item">
+
+                        <img src="assets/images/team4.jpg" class="team-img" alt="pic">
+
+                        <h3>[CEO Name]</h3>
+
+                        <div class="team-info">
+                            <p>Head of [NGO Name]</p>
+                        </div>
+
+                        <p>[CEO Name] is the founder and dedicated to building strong relationships with our donors and
+                            ensuring a seamless donation process.</p>
+
+                        <!-- <ul class="team-icon">
+                            
+                            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                                
+                            <li><a href="#" class="pinterest"><i class="fab fa-pinterest"></i></a></li>
+                                
+                            <li><a href="#" class="facebook"><i class="fab fa-linkedin-in"></i></a></li>
+                                
+                            <li><a href="#" class="dribble"><i class="fab fa-dribbble"></i></a></li>
+                                
+                        </ul> -->
+
+                    </div>
+
+                </div>
+                <!--end team-item -->
+
+                <!--begin team-item -->
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="team-item">
+
+                        <img src="assets/images/team3.jpg" class="team-img" alt="pic">
+
+                        <h3>[CEO Name]</h3>
+
+                        <div class="team-info">
+                            <p>Head of [NGO Name]</p>
+                        </div>
+
+                        <p>[CEO Name] oversees the medical aspects of our blood donation process, ensuring the highest
+                            standards of safety and quality.</p>
+
+                        <!-- <ul class="team-icon">
+                            
+                            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                                
+                            <li><a href="#" class="pinterest"><i class="fab fa-pinterest"></i></a></li>
+                                
+                            <li><a href="#" class="facebook"><i class="fab fa-linkedin-in"></i></a></li>
+                                
+                            <li><a href="#" class="dribble"><i class="fab fa-dribbble"></i></a></li>
+                                
+                        </ul> -->
+
+                    </div>
+
+                </div>
+                <!--end team-item -->
+
+            </div>
+            <!--end row-->
+
+        </div>
+        <!--end container-->
+
+    </section>
+    <!--end team section-->
+
+    <!--begin showcase section -->
+    <section class="section-blue section-top-border" id="showcase">
+
+        <!--begin container -->
+        <div class="container-fluid">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center padding-bottom-40">
+
+                    <h2 class="section-title white-text">Organizing Blood Donation Camps</h2>
+
+                    <p class="section-subtitle white">We organize various camps to promote blood donation and awareness
+                        about the <br> importance of blood donation. Our camps include: </p>
+
+                </div>
+                <!--end col-md-12 -->
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+        <!--begin showcase-wrapper -->
+        <div class="showcase-wrapper">
+
+            <!--begin container -->
+            <div class="container-fluid">
+
+                <!--begin row-->
+                <div class="row">
+
+                    <!--begin col md 12-->
+                    <div class="col-md-12 padding-top-10">
+
+                        <!--begin carousel-->
+                        <div id="carouselIndicators" class="carousel slide carousel-showcase" data-ride="carousel">
+
+                            <!--begin carousel-indicators-->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                            </ol>
+                            <!--end carousel-indicators-->
+
+                            <!--begin carousel-inner-->
+                            <div class="carousel-inner">
+
+                                <!--begin carousel-item-->
+                                <div class="carousel-item active">
+
+                                    <div class="row">
+
+                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <figure class="gallery-item">
+
+                                                <!--begin popup-gallery-->
+                                                <div class="popup-gallery popup-gallery-rounded portfolio-pic">
+                                                    <a class="popup2" href="/assets/images/camp1.jpg">
+                                                        <img src="assets/images/camp1.jpg" class="width-100" alt="pic">
+                                                        <span class="eye-wrapper"><i class="fa fa-search-plus eye-icon"
+                                                                style="font-size: 38px;"></i></span>
+                                                    </a>
+                                                </div>
+                                                <!--end popup-gallery-->
+
+                                                <!--begin portfolio-box -->
+                                                <div class="portfolio-box">
+                                                    <h3><a href="#">Team Communication</a></h3>
+                                                    <p class="portfolio-info">Lorem Ipsum</p>
+                                                </div>
+                                                <!--end portfolio-box -->
+
+                                            </figure>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <figure class="gallery-item">
+
+                                                <!--begin popup-gallery-->
+                                                <div class="popup-gallery popup-gallery-rounded portfolio-pic">
+                                                    <a class="popup2" href="/assets/images/camp2.jpg">
+                                                        <img src="assets/images/camp2.jpg" class="width-100" alt="pic">
+                                                        <span class="eye-wrapper"><i class="fa fa-search-plus eye-icon"
+                                                                style="font-size: 38px;"></i></span>
+                                                    </a>
+                                                </div>
+                                                <!--end popup-gallery-->
+
+                                                <!--begin portfolio-box -->
+                                                <div class="portfolio-box">
+                                                    <h3><a href="#">Business Digitalization</a></h3>
+                                                    <p class="portfolio-info">Lorem Ipsum</p>
+                                                </div>
+                                                <!--end portfolio-box -->
+
+                                            </figure>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <figure class="gallery-item">
+
+                                                <!--begin popup-gallery-->
+                                                <div class="popup-gallery popup-gallery-rounded portfolio-pic">
+                                                    <a class="popup2" href="/assets/images/camp3.jpg">
+                                                        <img src="assets/images/camp3.jpg" class="width-100" alt="pic">
+                                                        <span class="eye-wrapper"><i class="fa fa-search-plus eye-icon"
+                                                                style="font-size: 38px;"></i></span>
+                                                    </a>
+                                                </div>
+                                                <!--end popup-gallery-->
+
+                                                <!--begin portfolio-box -->
+                                                <div class="portfolio-box">
+                                                    <h3><a href="#">Process Management</a></h3>
+                                                    <p class="portfolio-info">Lorem Ipsum</p>
+                                                </div>
+                                                <!--end portfolio-box -->
+
+                                            </figure>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!--end carousel-item-->
+
+                                <!--begin carousel-item-->
+                                <div class="carousel-item">
+
+                                    <div class="row">
+
+                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <figure class="gallery-item">
+
+                                                <!--begin popup-gallery-->
+                                                <div class="popup-gallery popup-gallery-rounded portfolio-pic">
+                                                    <a class="popup2" href="images/camp4.jpg">
+                                                        <img src="assets/images/camp4.jpg" class="width-100" alt="pic">
+                                                        <span class="eye-wrapper"><i class="fa fa-search-plus eye-icon"
+                                                                style="font-size: 38px;"></i></span>
+                                                    </a>
+                                                </div>
+                                                <!--end popup-gallery-->
+
+                                                <!--begin portfolio-box -->
+                                                <div class="portfolio-box">
+                                                    <h3><a href="#">Project Management</a></h3>
+                                                    <p class="portfolio-info">Lorem Ipsum</p>
+                                                </div>
+                                                <!--end portfolio-box -->
+
+                                            </figure>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <figure class="gallery-item">
+
+                                                <!--begin popup-gallery-->
+                                                <div class="popup-gallery popup-gallery-rounded portfolio-pic">
+                                                    <a class="popup2" href="images/camp5.jpg">
+                                                        <img src="assets/images/camp5.jpg" class="width-100" alt="pic">
+                                                        <span class="eye-wrapper"><i class="fa fa-search-plus eye-icon"
+                                                                style="font-size: 38px;"></i></span>
+                                                    </a>
+                                                </div>
+                                                <!--end popup-gallery-->
+
+                                                <!--begin portfolio-box -->
+                                                <div class="portfolio-box">
+                                                    <h3><a href="#">Project Planning</a></h3>
+                                                    <p class="portfolio-info">Lorem Ipsum</p>
+                                                </div>
+                                                <!--end portfolio-box -->
+
+                                            </figure>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <figure class="gallery-item">
+
+                                                <!--begin popup-gallery-->
+                                                <div class="popup-gallery popup-gallery-rounded portfolio-pic">
+                                                    <a class="popup2" href="images/camp6.jpg">
+                                                        <img src="assets/images/camp6.jpg" class="width-100" alt="pic">
+                                                        <span class="eye-wrapper"><i class="fa fa-search-plus eye-icon"
+                                                                style="font-size: 38px;"></i></span>
+                                                    </a>
+                                                </div>
+                                                <!--end popup-gallery-->
+
+                                                <!--begin portfolio-box -->
+                                                <div class="portfolio-box">
+                                                    <h3><a href="#">Task Management</a></h3>
+                                                    <p class="portfolio-info">Lorem Ipsum</p>
+                                                </div>
+                                                <!--end portfolio-box -->
+
+                                            </figure>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!--end carousel-item-->
+
+                            </div>
+                            <!--end carousel-inner-->
+
+                        </div>
+                        <!--end carousel-->
+
+                    </div>
+                    <!--end col md 12-->
+
+                </div>
+                <!--end row -->
+
+            </div>
+            <!--end container -->
+
+        </div>
+        <!--end showcase-wrapper -->
+
+    </section>
+    <!--end showcase section -->
+
+    <!--begin section-white -->
+    <!--begin container-->
+    <section class="margin-bottom-30 margin-top-20">
+        <div class="container">
+
+            <!--begin row-->
+            <div class="row">
+
+                <!--begin col-md-6-->
+                <div class="col-md-6 padding-top-20">
+
+                    <h3>Be a Hero, Donate Blood, Save Lives.</h3>
+
+                    <p>Blood Donate is a blood donation platform that aims to bridge the gap between blood donors and
+                        recipients. Our mission is to make blood donation a hassle-free process, ensuring that everyone
+                        in need gets the required blood on time.</p>
+
+                    <ul class="benefits">
+                        <li><i class="fa fa-check"></i> Help save lives by donating blood.</li>
+                        <li><i class="fa fa-check"></i> Get notified about blood requests in your area.</li>
+                        <li><i class="fa fa-check"></i> Be a part of a community that cares.</li>
+                    </ul>
+
+                    <a href="/signup" class="btn-blue scrool">Donate Blood Today</a>
+
+                </div>
+                <!--end col-md-6-->
+
+                <!--begin col-md-6-->
+                <div class="col-md-6">
+
+                    <img src="assets/images/injection.jpg" class="hero-image width-100 box-shadow  margin-top-30 "
+                        alt="Blood Donation">
+
+                </div>
+                <!--end col-sm-6-->
+
+            </div>
+            <!--end row-->
+
+        </div>
+        <!--end container-->
+
+    </section>
+    <div></div>
+    <!--end section-white-->
+
+    <!--begin testimonials section -->
+
+    <!--end testimonials section -->
+
+    <!--begin pricing section -->
+
+    <!--end pricing section -->
+
+    <!--begin cta section -->
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets/images/downloadimage.PNG" alt="Raktsetu App Image"
+                        class="img-fluid animated fadeInLeft download-image ">
+                </div>
+                <div class="col-md-6 download-image-content">
+                    <h2 class="animated fadeIn">Download Blood Donate App</h2>
+                    <h6 class="animated fadeIn">Get the Blood Donate app and start exploring the features.</h6>
+                    <ul class="arrow-list">
+                        <li>Find Blood Donors Instantly in your city or across India.</li>
+                        <li>Connect with Lifesavers in just one click, via multiple languages.</li>
+                        <li>Donate and Save Lives, track your donation history and benefits.</li>
+                        <li>Instant Notifications when blood is urgently needed near you.</li>
+                        <li>Over 1 Million registered donors making a difference across the country.</li>
+                    </ul>
+
+
+                    <div class="btn-group animated fadeIn">
+                        <a href="#" class="btn-app-store">
+                            <img src="assets/images/app.png" alt="App Store Button" class="img-fluid">
+                        </a>
+                        <a href="#" class="btn-google-play">
+                            <img src="assets/images/playstore.png" alt="Google Play Button" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end cta section -->
+
+    <!--begin faq section -->
+
+    <!-- begin blog -->
+    <section class="section-grey" id="blog">
+        <!--begin container-->
+        <div class="container">
+
+            <!--begin row-->
+            <div class="row">
+
+                <!--begin col-md-12-->
+                <div class="col-md-12 text-center">
+                    <h2 class="section-title">Our Donors</h2>
+
+                    <p class="section-subtitle">Latest news, tips and best practices.</p>
+                </div>
+                <!--end col-md-12-->
+
+            </div>
+            <!--end row-->
+
+            <!--begin row-->
+            <div class="row">
+
+                <!--begin col-sm-4 -->
+                <div class="col-md-4">
+
+                    <!--begin blog-item -->
+                    <div class="blog-item">
+
+                        <!--begin popup image -->
+                        <div class="popup-wrapper">
+                            <div class="popup-gallery">
+                                <a href="#">
+                                    <img src="assets/images/blog1.jpg" class="width-100" alt="pic">
+                                    <span class="eye-wrapper2"><i class="fa fa-link eye-icon"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end popup image -->
+
+                        <!--begin blog-item_inner -->
+                        <div class="blog-item-inner">
+
+                            <h3 class="blog-title"><a href="#">The Guide To LinkedIn Ads</a></h3>
+
+                            <a href="#" class="blog-icons last"><i class="pe-7s-date"></i> August 1st, 2019</a>
+
+                            <p>Quis autem velis nets reprehender net etid quiste voluptate velite est quam nihis etsa
+                                sedit varias.</p>
+
+                        </div>
+                        <!--end blog-item-inner -->
+
+                    </div>
+                    <!--end blog-item -->
+
+                </div>
+                <!--end col-sm-4-->
+
+                <!--begin col-sm-4 -->
+                <div class="col-md-4">
+
+                    <!--begin blog-item -->
+                    <div class="blog-item">
+
+                        <!--begin popup image -->
+                        <div class="popup-wrapper">
+                            <div class="popup-gallery">
+                                <a href="#">
+                                    <img src="assets/images/blog2.jpg" class="width-100" alt="pic">
+                                    <span class="eye-wrapper2"><i class="fa fa-link eye-icon"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end popup image -->
+
+                        <!--begin blog-item_inner -->
+                        <div class="blog-item-inner">
+
+                            <h3 class="blog-title"><a href="#">Affinity Designer Quick Start</a></h3>
+
+                            <a href="#" class="blog-icons last"><i class="pe-7s-date"></i> September 27th, 2019</a>
+
+                            <p>Quis autem velis nets reprehender net etid quiste voluptate velite est quam nihis etsa
+                                sedit varias.</p>
+
+                        </div>
+                        <!--end blog-item-inner -->
+
+                    </div>
+                    <!--end blog-item -->
+
+                </div>
+                <!--end col-sm-4-->
+
+                <!--begin col-sm-4 -->
+                <div class="col-md-4">
+
+                    <!--begin blog-item -->
+                    <div class="blog-item">
+
+                        <!--begin popup image -->
+                        <div class="popup-wrapper">
+                            <div class="popup-gallery">
+                                <a href="#">
+                                    <img src="assets/images/blog3.jpg" class="width-100" alt="pic">
+                                    <span class="eye-wrapper2"><i class="fa fa-link eye-icon"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end popup image -->
+
+                        <!--begin blog-item_inner -->
+                        <div class="blog-item-inner">
+
+                            <h3 class="blog-title"><a href="#">Our Happy Team</a></h3>
+
+                            <a href="#" class="blog-icons last"><i class="pe-7s-date"></i> July 11th, 2019</a>
+
+                            <p>Quis autem velis nets reprehender net etid quiste voluptate velite est quam nihis etsa
+                                sedit varias.</p>
+
+                        </div>
+                        <!--end blog-item-inner -->
+
+                    </div>
+                    <!--end blog-item -->
+
+                </div>
+                <!--end col-sm-4-->
+
+            </div>
+            <!--end row-->
+
+        </div>
+        <!--end container-->
+
+    </section>
+    <!--end blog -->
+
+    <!--begin contact -->
+    <!-- <section class="section-white no-padding section-top-border" id="contact">
+
+        <div class="container-fluid px-0">
+
+            <div class="row no-gutters">
+
+                <div class="col-md-6">
+
+                    <iframe class="contact-maps"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.14675028449633118!3d51.514958479636384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c67c1a!2sOxford+St%2C+London%2C+UK!5e0!3m2!1sen!2sro!4v1485889312335"
+                        width="900" height="630" style="border:0" allowfullscreen></iframe>
+
+                </div>
+
+                <div class="col-md-6 margin-top-70">
+
+                    <div class="small-col-inside">
+
+                        <h3 class="margin-bottom-5">Get in touch</h3>
+
+                        <p>Contact us today for a free, no obligation quote.</p>
+
+                        <p class="contact_success_box" style="display:none;">We received your message and you'll hear
+                            from us soon. Thank You!</p>
+                       
+                        <form id="contact-form" class="contact"
+                            action="https://demo.epic-webdesign.com/tf-square/v4/php/contact.php" method="post">
+
+                            <input class="contact-input white-input" required="" name="contact_names"
+                                placeholder="Full Name*" type="text">
+
+                            <input class="contact-input white-input" required="" name="contact_email"
+                                placeholder="Email Adress*" type="email">
+
+                            <input class="contact-input white-input" required="" name="contact_phone"
+                                placeholder="Phone Number*" type="text">
+
+                            <textarea class="contact-commnent white-input" rows="2" cols="20" name="contact_message"
+                                placeholder="Your Message..."></textarea>
+
+                            <input value="Send Message" id="submit-button" class="contact-submit" type="submit">
+
+                        </form>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section> -->
+    <!--end contact-->
+
+    <!--begin footer -->
+    <div class="footer">
+
+        <!--begin container -->
+        <div class="container-fluid px-0">
+
+            <!--begin row -->
+            <div class="row no-gutters mx-0">
+
+                <!--begin col-md-4 -->
+                <div class="col-md-4 footer-dark-grey-box text-center">
+
+                    <i class="pe-7s-map-2"></i>
+
+                    <h5>Get In Touch</h5>
+
+                    <p>10 Oxford Street, London, UK, E1 1EC</p>
+
+                    <p><a href="mailto:contact@youremail.com">example123@gmail.com</a></p>
+
+                    <p>+44 987 654 321</p>
+
+                </div>
+                <!--end col-md-4 -->
+
+                <!--begin col-md-4 -->
+                <div class="col-md-4 footer-grey-box  text-center">
+
+                    <i class="pe-7s-comment"></i>
+
+                    <h5>Social Media</h5>
+
+                    <p>See bellow where you can find us.</p>
+
+                    <!--begin footer_social -->
+                    <ul class="footer_social">
+
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+
+                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+
+                        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+
+                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
+
+                        <li><a href="#"><i class="fab fa-dribble"></i></a></li>
+
+                    </ul>
+                    <!--end footer_social -->
+
+                </div>
+                <!--end col-md-4 -->
+
+                <!--begin col-md-4 -->
+                <div class="col-md-4 footer-dark-grey-box text-center">
+
+                    <i class="pe-7s-link"></i>
+
+                    <h5>Useful Links</h5>
+
+                    <a href="#" class="footer-links">Our Cookies Policy</a>
+
+                    <a href="#" class="footer-links">Meet The Team Behind Square</a>
+
+                    <a href="#" class="footer-links">Terms and Conditions</a>
+
+                </div>
+                <!--end col-md-4 -->
+
+            </div>
+            <!--end row -->
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 footer-bottom text-center">
+
+                    <p>Copyright © 2024 &nbsp;&nbsp;&nbsp; All rights reserved.</p>
+
+                </div>
+                <!--end col-md-6 -->
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+    </div>
+    <!--end footer -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.to(".animation-LR", {
+                duration: 1.5,
+                delay: 1,
+                rotation: 360,
+                x: 600,  // Move from left to right
+            });
+
+            gsap.to(".animation-RL", {
+                duration: 1.5,
+                delay: 1,
+                rotation: 360,
+                x: -600,  // Move from right to left
+            });
+        });
+    </script>
+
+    <!-- Load JS here for greater good =============================-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollTo-min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nav.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="../public//assets/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"
+        integrity="sha512-auFmPm+de880vk/c+bgBmuOnQ7BM28z7zPWmepVgX8737t75OHZjElOnQqERwP8cE4DIyCJ+gb1kE0b/eLWcnA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.172.0/three.tsl.js" integrity="sha512-PiFiRajtnAStBKn2yo9z+RO3RJ6/Njc4l2KhPRuJ3jQ3J8aro4NRQpoGVNDOJNQ6Iuzou85TWxN2QGNDUyj6wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+    <script src="../public/assets/"></script>
+
+</body>
+
+</html>

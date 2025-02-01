@@ -1,0 +1,124 @@
+<!-- view/userdata.ejs !-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .container-fluid {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #8f2525;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ecdada;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #8f2525;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8f2525;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #721414;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Donor Data</h1>
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Donor Name</th>
+                    <th>Father Name</th>
+                    <th>Mother Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Donated Before</th>
+                    <th>Allergy</th>
+                    <th>Operation</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.donor_name %></td>
+                        <td><%= user.father_name %></td>
+                        <td><%= user.mother_name %></td>
+                        <td><%= user.dob %></td>
+                        <td><%= user.gender %></td>
+                        <td><%= user.blood_group %></td>
+                        <td><%= user.donated_before %></td>
+                        <td><%= user.allergy %></td>
+                        <td><%= user.operation %></td>
+                        <td><%= user.watsapp %></td>
+                        <td><%= user.email %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        
+    </div>
+
+    
+</body>
+</html>

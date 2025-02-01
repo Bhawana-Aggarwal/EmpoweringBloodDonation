@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    font-weight: 700;
+    font-size: 35px !important;
+    font-size: xx-large;
+    text-align: center;
+    color: #8f2525;
+}
+
+.container{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+.form-group label{
+    /* width: 100%; */
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #8f2525;
+}
+
+.form-group input{
+    padding: 8px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+}
+
+.form-group select{
+    padding: 8px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+}
+/* .form-group textarea{
+    width: 100%;
+    font-size: 18px;
+    padding-left: 10px;
+   line-height: 2.5;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+} */
+.font-size-20{
+    font-size: 20px;
+}
+.gender_css{
+    display: flex;
+    justify-content:space-around;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 0.375rem;
+}
+.submit-btn{
+    display: block;
+    font-size: 25px;
+    width: 100%;
+    padding: 10px;
+    background-color: #8f2525;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-btn:hover{
+    background-color: #721414;
+}
+.password-eye{
+    cursor: pointer;
+}
+p{
+    margin-top: 15px;
+    font-size: 20px;
+}
+p a{
+    text-decoration: none;
+}
