@@ -27,6 +27,7 @@ app.use('/', userRoutes);
 // NGO Routes
 app.use('/ngo', ngoRoutes);
 
+// port listening on 'port'
 const port = 5000;
 app.listen(port, () => {
     console.log(`Server running on the port : ${port}`);
