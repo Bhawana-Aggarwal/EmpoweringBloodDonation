@@ -1,24 +1,17 @@
-// databse/db.js
-
-const mongose = require('mongoose');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const mongoURL = process.env.MONGO_URL;
 
-mongose.connect(mongoURL,{
+mongoose.connect(mongoURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
-    
-const db = mongose.connection;
 
-// Check the database connection
-db.on('connected', () => {
-    console.log('Connected to database');
-});
-db.on('error', (err) => {
-    console.log('Error in database connection: ' + err);
-});
-db.on('disconnected', () => {
-    console.log('Disconnected to database');
-})
+const db = mongoose.connection;
+
+db.on('connected', () => console.log('✅ Connected to database'));
+db.on('error', (err) => console.error('❌ Database connection error:', err));
+db.on('disconnected', () => console.log('⚠️ Disconnected from database'));
 
 module.exports = db;
