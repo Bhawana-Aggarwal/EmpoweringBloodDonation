@@ -510,7 +510,7 @@
             <div class="row">
 
                 <!-- Left Column - Moves Left to Right -->
-                <div class="col-md-6 margin-top-20 animation-LR">
+                <div class="col-md-6 margin-top-20">
                     <h3>Share Blood, Save Life</h3>
                     <p class="margin-bottom-40">We strive to make blood donation a convenient and rewarding experience
                         for our donors while ensuring that patients receive the blood they need to live.</p>
@@ -556,7 +556,7 @@
                 </div>
 
                 <!-- Right Column - Moves Right to Left -->
-                <div class="col-md-6 animation-RL">
+                <div class="col-md-6">
                     <div class="tab-content margin-left-20" id="v-pills-tabContent">
                         <img src="assets/images/savelife.jpg" alt="pic"
                             style="height: 600px; width: 100%; border-radius: 5px; box-shadow:  #d86868 2px 5px 2px 1px;"
@@ -1596,24 +1596,6 @@
 
     </div>
     <!--end footer -->
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            gsap.to(".animation-LR", {
-                duration: 1.5,
-                delay: 1,
-                rotation: 360,
-                x: 600,  // Move from left to right
-            });
-
-            gsap.to(".animation-RL", {
-                duration: 1.5,
-                delay: 1,
-                rotation: 360,
-                x: -600,  // Move from right to left
-            });
-        });
-    </script>
 
     <!-- Load JS here for greater good =============================-->
     <script src="js/jquery-3.3.1.min.js"></script>
