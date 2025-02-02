@@ -1,7 +1,9 @@
 // databse/db.js
 
 const mongose = require('mongoose');
-const mongoURL = 'mongodb://localhost:27017/College_Database';
+require('dotenv').config();
+
+const mongoURL = process.env.MONGO_URL;
 
 mongose.connect(mongoURL,{
 
