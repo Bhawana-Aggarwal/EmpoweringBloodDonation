@@ -5,7 +5,8 @@ const mongoURL = process.env.MONGO_URL;
 
 // Connect to the database
 mongose.connect(mongoURL,{
-
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
     
 const db = mongose.connection;
