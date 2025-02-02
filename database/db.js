@@ -1,17 +1,27 @@
-const mongoose = require('mongoose');
+const mongose = require('mongoose');
 require('dotenv').config();
-const url = process.env.MONGODB_URL;
+// Database connection
+const mongoURL = process.env.MONGO_URL;
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect(url, {
-           
-        });
-        console.log('Database is connected');
-    } catch (err) {
-        console.error('Error connecting to the database:', err);
-        process.exit(1);
-    }
-}
+// Connect to the database
+mongose.connect(mongoURL,{
 
-module.exports = connectDB;
+});
+    
+const db = mongose.connection;
+
+// Check the database connection
+db.on('connected', () => {
+    console.log('Connected to database');
+});
+db.on('error', (err) => {
+    console.log('Error in database connection: ' + err);
+});
+db.on('disconnected', () => {
+    console.log('Disconnected to database');
+})
+
+// export the database
+module.exports = db;
+
+
