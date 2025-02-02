@@ -4,6 +4,7 @@ const path = require("path");
 const userRoutes = require('./routes/userRoutes'); // user/donor routes
 const ngoRoutes = require('./routes/ngoRoutes'); // NGO routes
 const connectDB = require('./database/db'); // database connection
+require('dotenv').config(); // environment variables
 
 const app = express();          //express app
 
@@ -28,7 +29,7 @@ app.use('/', userRoutes);
 app.use('/ngo', ngoRoutes);
 
 // port listening on 'port'
-const port = 5000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on the port : ${port}`);
 })
