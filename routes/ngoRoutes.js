@@ -127,7 +127,7 @@ router.post('/mail-them', async (req, res) => {
                    <p>Location: ${latestCampInfo.location}</p>
                    <p>Timing: ${latestCampInfo.timing}</p>
                    <p>Organized By: ${latestCampInfo.organizedBy}</p>
-                   <p>"Your support can save lives—let's make this camp a success together. We look forward to your valuable participation in this noble cause."</p>`
+                   <p>Your support can save lives—let's make this camp a success together. We look forward to your valuable participation in this noble cause.</p>`
         };
 
         await transporter.sendMail(mailOptions);

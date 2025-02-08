@@ -11,7 +11,7 @@
     border-radius: 5px;
 }
 .ngo_opt{
-    min-width: 200px !important;
+    min-width: 165px !important;
     min-height: 200px !important;
     background-color: #8f2525;
     border: none;
@@ -19,13 +19,13 @@
 }
 @media only screen and (max-width: 768px) {
     .ngo_opt {
-        min-width: 120px !important; /* set width to 100% of parent element */
+        /* min-width: 120px !important; set width to 100% of parent element */
         min-height: 120px !important; /* change height to 120px */
     }
 }
 @media only screen and (max-width: 390px) {
     .ngo_opt {
-        min-width: 90px !important; /* set width to 100% of parent element */
+        min-width: 155px !important; /* set width to 100% of parent element */
         min-height: 120px !important; /* change height to 120px */
     }
 }

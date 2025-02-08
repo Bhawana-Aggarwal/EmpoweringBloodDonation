@@ -107,20 +107,12 @@
                         <tbody>
                             <% camps.forEach(camp=> { %>
                                 <tr>
-                                    <td>
-                                        <%= camp.organizedBy %>
-                                    </td>
-                                    <td>
-                                        <%= camp.date %>
-                                    </td>
-                                    <td>
-                                        <%= camp.location %>
-                                    </td>
-                                    <td>
-                                        <%= camp.timing %>
-                                    </td>
+                                    <td><%= camp.organizedBy %></td>
+                                    <td><%= camp.date %></td>
+                                    <td><%= camp.location %></td>
+                                    <td><%= camp.timing %></td>
                                 </tr>
-                                <% }) %>
+                            <% }) %>
                         </tbody>
 
                     </table>
