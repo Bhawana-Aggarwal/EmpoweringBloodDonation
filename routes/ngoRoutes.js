@@ -13,6 +13,7 @@ router.get('/ngo_login', (req, res) => {
     res.render('ngo_login');
 });
 
+
 // Render user data page
 router.get('/userdata', (req, res) => {
     res.render('ngo_login');
@@ -116,8 +117,8 @@ router.post('/mail-them', async (req, res) => {
 
         // Set up email options with the latest camp information
         const mailOptions = {
-            from: process.env.EMAIL , // Sender's email
-            bcc : emails.join(','),          // Recipients' emails
+            from: process.env.EMAIL, // Sender's email
+            bcc: emails.join(','),          // Recipients' emails
             subject: 'Blood Donation Camp',     // Email subject
             text: `A blood donation camp is organized on ${latestCampInfo.date} at ${latestCampInfo.location}.
             Timing: ${latestCampInfo.timing}. Organized By: ${latestCampInfo.organizedBy}`,  // Email body

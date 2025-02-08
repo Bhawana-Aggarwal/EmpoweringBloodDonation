@@ -1,24 +1,24 @@
 const mongoose = require("mongoose");
 
-const loginSchema = new mongoose.Schema({
-    ngo_name : { 
+const adminSchema = new mongoose.Schema({
+    admin_name : { 
         type : String,
         required : true,
     },
-    ngo_email : {
+    admin_email : {
         type : String,
         required : true,
     },
-    ngo_password :{
+    admin_password :{
         type : String,
         required : true,
     }
 })
 
 //collection part
-const ngo_collection = new mongoose.model('NGO',loginSchema);
+const admin_collection = new mongoose.model('Admin',adminSchema);
 
 //export the model
-module.exports = ngo_collection;
+module.exports = admin_collection;
 
 

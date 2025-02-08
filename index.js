@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const userRoutes = require('./routes/userRoutes'); // user/donor routes
 const ngoRoutes = require('./routes/ngoRoutes'); // NGO routes
+const adminRoutes = require('./routes/adminRoutes'); // Admin routes
 const connectDB = require('./database/db'); // database connection
 require('dotenv').config(); // environment variables
 
@@ -27,6 +28,9 @@ app.use('/', userRoutes);
 
 // NGO Routes
 app.use('/ngo', ngoRoutes);
+
+// Admin Routes
+app.use('/admin', adminRoutes);
 
 // port listening on 'port'
 const port = process.env.PORT || 3000;

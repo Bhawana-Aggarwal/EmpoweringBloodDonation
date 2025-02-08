@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Admin Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link rel="stylesheet" href="/form_style.css">
@@ -14,39 +14,34 @@
 
 <body>
     <div class="container mt-4">
-        <h1>NGO SignUp</h1>
-        <p class="text-center fs-5 text-decoration-underline">Please fill in the following information to SignUp as a NGO :</p>
-        <form action="/ngo_signup" method="post">
+        <h1>Admin Login</h1>
+        <p class="text-center fs-5 text-decoration-underline">Please fill in the following information to login as Admin :</p>
+        <form action="admin_login/admin_home" method="post">
             <div class="row">
                 <div class="form-group col-12">
-                    <label for="ngo_name" class="form-label fs-5">NGO Name:</label>
-                    <input type="text" class="form-control" id="ngo_name" name="ngo_name" placeholder="Enter NGO Name:"
-                        required>
-                </div>
-            <div class="row">
-                <div class="form-group col-12">
-                    <label for="ngo_email" class="form-label fs-5">Email Id:</label>
-                    <input type="mail" class="form-control" id="ngo_email" name="ngo_email" placeholder="Enter NGO Mail Id"
+                    <label for="email" class="form-label fs-5">Email Id:</label>
+                    <input type="mail" class="form-control" id="email" name="email" placeholder="Enter Mail Id"
                         required>
                 </div>
                 <div class="form-group col-12">
-                    <label for="ngo_password" class="form-label fs-5">Password</label>
+                    <label for="password" class="form-label fs-5">Password
+                    </label>
                     <div class="input-group">
-                        <input type="password" required name="ngo_password" class="form-control" id="ngo_password"
-                            placeholder="Enter NGO Password">
+                        <input type="password" required name="password" class="form-control" id="password"
+                            placeholder="Enter Password">
                         <span class="input-group-text">
                             <i class="fas fa-eye eye-button" id="password-eye"></i>
                         </span>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="submit-btn">Sign Up</button>
+            <button type="submit" class="submit-btn">Login</button>
         </form>
     </div>
 
     <script>
         const passwordEye = document.getElementById('password-eye');
-        const passwordInput = document.getElementById('ngo_password');
+        const passwordInput = document.getElementById('password');
         passwordEye.addEventListener('click', () => {
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';

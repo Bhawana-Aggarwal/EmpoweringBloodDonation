@@ -26,219 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
-    <!-- <style>
-        *{
-            /* overflow-x: hidden; */
-            /* border: 2px solid rebeccapurple; */
-        }
-        /* Style for the circle animation container */
-        .circle-container {
-            display: inline-block;
-            position: relative;
-            width: 150px;
-            /* Set width for the container */
-            height: 150px;
-            /* Set height for the container */
-            overflow: hidden;
-            border-radius: 50%;
-            /* Make the container circular */
-
-
-        }
-
-        /* Image style with animation */
-        .circle-animated-image {
-            position: absolute;
-            width: 80%;
-            /* Image takes up the full container */
-            height: 80%;
-            /* Image takes up the full container */
-            animation: rotate-circle 4s infinite linear;
-            /* Apply circular rotation */
-            object-fit: cover;
-            /* Ensure the image fits within the circle */
-            margin-left: -40%;
-        }
-
-        /* Keyframes for circular rotation */
-        @keyframes rotate-circle {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Image style with animation */
-        .pulse-animated-image {
-            display: block;
-            margin: 0 auto;
-            width: 90px;
-            /* Adjust image size */
-            height: 90px;
-            border-radius: 50%;
-            /* Optional: makes the image circular */
-            object-fit: cover;
-            /* Ensures the image fits nicely */
-            animation: pulse 1s infinite ease-in-out;
-            /* Apply pulse animation */
-        }
-
-        /* Keyframes for pulsing effect */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                /* Normal size */
-            }
-
-            50% {
-                transform: scale(1.1);
-                /* Slightly zoomed in */
-            }
-
-            100% {
-                transform: scale(1);
-                /* Back to normal size */
-            }
-        }
-
-        .animated-service-image {
-            display: block;
-            margin: 0 auto;
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            /* Ensures the image looks nice */
-            border-radius: 50%;
-            /* Optional circular shape */
-            animation: continuousAnimation 3s ease-in-out infinite;
-            /* Continuous animation loop */
-            transition: transform 0.8s ease, box-shadow 0.3s ease;
-            /* Smooth hover effect */
-        }
-
-        /* Hover effect */
-        .animated-service-image:hover {
-            transform: scale(1.1);
-            /* Slight zoom on hover */
-            /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
-            /* Add shadow on hover */
-        }
-
-        /* Continuous animation keyframes */
-        @keyframes continuousAnimation {
-            0% {
-                transform: translateY(0) scale(1);
-                /* Starting position */
-            }
-
-            25% {
-                transform: translateY(0px) scale(1.05);
-                /* Move up slightly and scale up */
-            }
-
-            50% {
-                transform: translateY(0) scale(0.95);
-                /* Return to the original position */
-            }
-
-            75% {
-                transform: translateY(15px) scale(0.15);
-                /* Move down slightly and scale down */
-            }
-
-            100% {
-                transform: translateY(0) scale(1);
-                /* Return to the starting position */
-            }
-        }
-
-        /* to animate why donate blood  */
-        @keyframes slideInOut {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            30% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-            60% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-
-        /* to animate we believe that individual  */
-        .section-subtitle {
-            font-size: 24px;
-            color: white;
-            /* Text color */
-            white-space: nowrap;
-            /* Prevent text from wrapping */
-            overflow: hidden;
-            /* Hide overflow to create a masking effect */
-            border-right: 2px solid white;
-            /* Create a cursor effect */
-            animation: typing 10s steps(50, end) infinite alternate, blink-caret 0.75s step-end infinite;
-            background: linear-gradient(90deg, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.1));
-            background-size: 200% 100%;
-            animation: typing 5s steps(50, end), glow 1.5s infinite alternate;
-        }
-
-        @keyframes typing {
-            0% {
-                width: 0;
-            }
-
-            50% {
-                width: 100%;
-            }
-
-            100% {
-                width: 0;
-                /* Reset to 0 to create an infinite loop */
-            }
-        }
-
-        @keyframes glow {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            100% {
-                background-position: 100% 50%;
-            }
-        }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-right: 2px solid transparent;
-            }
-
-            50% {
-                border-right: 2px solid white;
-            }
-        }
-
-        @media (max-width: 750px) {
-            .savelife_img {
-                display: none !important;
-            }
-        }
-    </style> -->
-
+   
     <!-- ===================================================================================================================================== -->
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Dosis:500,600" rel="stylesheet">
@@ -283,10 +71,12 @@
                             <li><a href="#showcase">Camps</a></li>
                             <!-- <li><a href="#pricing">Pricing</a></li> -->
                             <li><a href="#blog">Our Donors</a></li>
-                            <li class="discover-link"><a href="/signup" class="external discover-btn">Get Started!</a>
+                            <li class="discover-link"><a href="/signup" class="external discover-btn">Register As Donor</a>
                             </li>
                             <li class="discover-link"><a href="/ngo/ngo_login" class="external discover-btn">NGO
                                     Login</a></li>
+                            <li><a href="/admin/admin_login" class="external discover-btn">Admmin
+                                </a></li>
                         </ul>
                         <!--end navbar-nav -->
                     </div>
@@ -569,7 +359,7 @@
     <section class="section-blue small-paddings" id="newsletter-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center padding-top-50 padding-bottom-20">
+                <div class="col-md-12 text-center padding-top-30 padding-bottom-20">
                     <h3 id="newsletter-text" class="white-text">
                         Stay updated on our latest events, campaigns, and news by entering your email address below.
                         We'll keep you informed about our blood donation drives, awareness campaigns, and volunteer

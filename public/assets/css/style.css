@@ -282,7 +282,7 @@ iframe {
 }
 
 .section-white.small-paddings, .section-grey.small-paddings, .section-blue.small-paddings {
-	padding: 30px 0;
+	padding: 10px 0;
 }
 
 .section-white.xsmall-paddings, .section-grey.xsmall-paddings, .section-blue.xsmall-paddings {
@@ -471,6 +471,7 @@ iframe {
 .padding-top-50 {
 	padding-top: 50px !important;
 }
+
 .padding-top-60 {
 	padding-top: 60px !important;
 }
