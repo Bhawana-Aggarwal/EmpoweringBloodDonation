@@ -8,6 +8,8 @@ const CampInfo = require('../model/camp_model');
 const router = express.Router();
 require('dotenv').config();
 
+const nodemailer = require("nodemailer");
+
 // post method for Admin registration
 // router.post('/signup', async (req, res) => {
 //     try {
@@ -98,9 +100,40 @@ router.post('/add_NGO', async (req, res) => {
         });
 
         await newNgo.save();
+
+
+        // Configure nodemailer transporter
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            secure: true,
+            port: 465,
+            auth: {
+                user: process.env.ADMIN_EMAIL, // admin's email
+                pass: process.env.ADMIN_PASSWORD, // Sender's password
+            }
+        });
+        // Email options
+        const mailOptions = {
+            from: process.env.ADMIN_EMAIL,
+            to: ngo_email,
+            subject: 'Your NGO registered suceesfully',
+            text: `To ${ngo_name},\n\nYour NGO is registered successfully. \nIf you have any questions or need assistance, feel free to reach out to us at visit: https://empoweringblooddonation.onrender.com/#contact-us . \n\nTogether, we can make a difference!\n\nThank you again for your kindness and generosity.`
+        };
+
+        // Send email notification
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Email error:', error);
+            } else {
+                console.log('Email sent:', info.response);
+            }
+        });
+
+
         // res.status(201).json({ message: "NGO Registered Successfully" });
         res.send(`
-            <script>alert('NGO Registered successful.');`);
+            <script>alert('NGO Registered successful.');
+            window.location.href='/admin/admin_login';</script>`);
 
     } catch (err) {
         console.log(err);
@@ -108,6 +141,15 @@ router.post('/add_NGO', async (req, res) => {
     }
 });
 
+router.get('/list_ngo', async (req, res) => {
+    try {
+        const ngos = await ngo_collection.find();
+        res.render('list_ngo', { ngos, error: null });
+    } catch (err) {
+        console.error('Error fetching NGO data:', err);
+        res.status(500).render('ngo_camp', { error: 'Error fetching NGO data', camps: [] });
+    }
+});
 
 router.get('/list_ngocamps', async (req, res) => {
     try {

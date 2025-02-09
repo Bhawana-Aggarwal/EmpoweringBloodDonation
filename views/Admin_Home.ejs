@@ -23,13 +23,16 @@
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
         <div class="container">
             <div class="row">
-                <div class="col-4 button">
+                <div class="col-3 button">
                     <a href="/signup"><button class="btn btn-danger button">Add Donors</button></a>
                 </div>
-                <div class="col-4 button">
+                <div class="col-3 button">
                     <button id="addNgo" class="btn btn-danger button">Add NGO</button>
                 </div>
-                <div class="col-4 button">
+                <div class="col-3 button">
+                    <button id="listNGO" class="btn btn-danger button">List NGO</button>
+                </div>
+                <div class="col-3 button">
                     <button id="listNgoCamps" class="btn btn-danger button">List NGO Camps</button>
                 </div>
                 
@@ -40,6 +43,10 @@
     <script>
         document.getElementById('addNgo').addEventListener('click', function() {
             window.location.href = '/admin/add_NGO';
+        });
+
+        document.getElementById('listNGO').addEventListener('click', function() {
+            window.location.href = '/admin/list_ngo';
         });
         
         document.getElementById('listNgoCamps').addEventListener('click', function() {
