@@ -30,6 +30,6 @@ const userQuery = new Schema({
     }
 })
 
-const UserQuery = mongoose.model('UserQuieres', userQuery);
+const UserQuery = mongoose.model('User_Quieres', userQuery);
 
 module.exports = UserQuery;
