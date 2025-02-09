@@ -101,8 +101,8 @@ router.post('/mail-them', async (req, res) => {
             secure: true,
             port: 465,
             auth: {
-                user: process.env.EMAIL, // Sender's email
-                pass: process.env.PASSWORD, // Sender's password
+                user: process.env.ADMIN_EMAIL, // Sender's email
+                pass: process.env.ADMIN_PASSWORD, // Sender's password
 
             }
         });
@@ -117,7 +117,7 @@ router.post('/mail-them', async (req, res) => {
 
         // Set up email options with the latest camp information
         const mailOptions = {
-            from: process.env.EMAIL, // Sender's email
+            from: process.env.ADMIN_EMAIL, // Sender's email
             bcc: emails.join(','),          // Recipients' emails
             subject: 'Blood Donation Camp',     // Email subject
             text: `A blood donation camp is organized on ${latestCampInfo.date} at ${latestCampInfo.location}.
