@@ -74,12 +74,12 @@ router.post('/admin_login/admin_home', async (req, res) => {
     }
 });
 
-router.get('/add_NGO', async (req, res) => {
+router.get('/admin_login/admin_home/add_NGO', async (req, res) => {
     res.render('add_NGO');
 });
 
 // post method for NGO registration
-router.post('/add_NGO', async (req, res) => {
+router.post('/admin_login/admin_home/add_NGO', async (req, res) => {
     try {
         const { ngo_name, ngo_email, ngo_password } = req.body;
 
@@ -141,7 +141,7 @@ router.post('/add_NGO', async (req, res) => {
     }
 });
 
-router.get('/list_ngo', async (req, res) => {
+router.get('/admin_login/admin_home/list_ngo', async (req, res) => {
     try {
         const ngos = await ngo_collection.find();
         res.render('list_ngo', { ngos, error: null });
@@ -151,7 +151,7 @@ router.get('/list_ngo', async (req, res) => {
     }
 });
 
-router.get('/list_ngocamps', async (req, res) => {
+router.get('/admin_login/admin_home/list_ngocamps', async (req, res) => {
     try {
         const camps = await CampInfo.find();
         res.render('ngo_camp_list', { camps, error: null });
