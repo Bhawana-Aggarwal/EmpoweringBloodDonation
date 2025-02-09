@@ -26,7 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
-   
+
     <!-- ===================================================================================================================================== -->
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Dosis:500,600" rel="stylesheet">
@@ -36,7 +36,15 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico">
     <!-- GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+<style>
+    /* style="color: #8f2525; font-weight: 600; font-size:large;"
+     */
+     .query-heading{
+        color: #8f2525;
+        font-weight: 600;
+        font-size: large;
+     }
+</style>
 
 </head>
 
@@ -71,7 +79,8 @@
                             <li><a href="#showcase">Camps</a></li>
                             <!-- <li><a href="#pricing">Pricing</a></li> -->
                             <li><a href="#blog">Our Donors</a></li>
-                            <li class="discover-link"><a href="/signup" class="external discover-btn">Register As Donor</a>
+                            <li class="discover-link"><a href="/signup" class="external discover-btn">Register As
+                                    Donor</a>
                             </li>
                             <li class="discover-link"><a href="/ngo/ngo_login" class="external discover-btn">NGO
                                     Login</a></li>
@@ -1024,7 +1033,8 @@
                 </div>
                 <div class="col-md-6 download-image-content">
                     <h2 class="animated fadeIn">Blood Donate App Comming Soon....</h2>
-                    <h6 class="animated fadeIn">We are excited to announce that the Blood Donate app is in development and will be available soon!</h6>
+                    <h6 class="animated fadeIn">We are excited to announce that the Blood Donate app is in development
+                        and will be available soon!</h6>
                     <ul class="arrow-list">
                         <li>Find Blood Donors Instantly in your city or across India.</li>
                         <li>Connect with Lifesavers in just one click, via multiple languages.</li>
@@ -1189,61 +1199,62 @@
     </section>
     <!--end blog -->
 
-    <!--begin contact -->
-    <!-- <section class="section-white no-padding section-top-border" id="contact">
-
-        <div class="container-fluid px-0">
-
-            <div class="row no-gutters">
-
-                <div class="col-md-6">
-
-                    <iframe class="contact-maps"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.14675028449633118!3d51.514958479636384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c67c1a!2sOxford+St%2C+London%2C+UK!5e0!3m2!1sen!2sro!4v1485889312335"
-                        width="900" height="630" style="border:0" allowfullscreen></iframe>
-
-                </div>
-
-                <div class="col-md-6 margin-top-70">
-
-                    <div class="small-col-inside">
-
-                        <h3 class="margin-bottom-5">Get in touch</h3>
-
-                        <p>Contact us today for a free, no obligation quote.</p>
-
-                        <p class="contact_success_box" style="display:none;">We received your message and you'll hear
-                            from us soon. Thank You!</p>
-                       
-                        <form id="contact-form" class="contact"
-                            action="https://demo.epic-webdesign.com/tf-square/v4/php/contact.php" method="post">
-
-                            <input class="contact-input white-input" required="" name="contact_names"
-                                placeholder="Full Name*" type="text">
-
-                            <input class="contact-input white-input" required="" name="contact_email"
-                                placeholder="Email Adress*" type="email">
-
-                            <input class="contact-input white-input" required="" name="contact_phone"
-                                placeholder="Phone Number*" type="text">
-
-                            <textarea class="contact-commnent white-input" rows="2" cols="20" name="contact_message"
-                                placeholder="Your Message..."></textarea>
-
-                            <input value="Send Message" id="submit-button" class="contact-submit" type="submit">
-
-                        </form>
-                        
+    <section class="container mt-3">
+        <h2 class="text-center" style="color: #8f2525;">Submit Your Queries</h2>
+        <div class="row">
+            <!-- User Query Form -->
+            <div class="col-md-6 mb-4">
+                <h4 style="color: #8f2525;">User Query</h4>
+                <form action="/query/submit-user-query" method="POST">
+                    <div class="form-group">
+                        <label for="donor_name" class="query-heading">Full Name</label>
+                        <input type="text" class="form-control" id="donor_name" name="donor_name" required>
                     </div>
-
-                </div>
-
+                    <div class="form-group">
+                        <label for="watsapp" class="query-heading">WhatsApp Number</label>
+                        <input type="number" class="form-control" id="watsapp" name="watsapp" required>
+                        <div id="watsapp-error" class="text-danger mt-2" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="query-heading">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="query-heading">Comment</label>
+                        <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger" style="background-color: #8f2525;">Submit</button>
+                </form>
             </div>
 
+            <!-- NGO Registration Query Form -->
+            <div class="col-md-6 mb-4">
+                <h4 style="color: #8f2525;">NGO Registration Query</h4>
+                <form action="/query/submit-ngo-query" method="POST">
+                    <div class="form-group">
+                        <label for="ngo_name" class="query-heading">NGO Name</label>
+                        <input type="text" class="form-control" id="ngo_name" name="ngo_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ngo_email" class="query-heading">NGO Email</label>
+                        <input type="email" class="form-control" id="ngo_email" name="ngo_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ngo_contact" class="query-heading">NGO Contact</label>
+                        <input type="number" class="form-control" id="ngo_contact" name="ngo_contact" required>
+                        <div id="NGO-watsapp-error" class="text-danger mt-2" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="query-heading">Comment</label>
+                        <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-danger" style="background-color: #8f2525;">Submit</button>
+                </form>
+            </div>
         </div>
+    </section>
 
-    </section> -->
-    <!--end contact-->
 
     <!--begin footer -->
     <div class="footer">
@@ -1338,7 +1349,39 @@
 
     </div>
     <!--end footer -->
+    <script>
+        // for user query -watsapp
+        const watsappInput = document.getElementById('watsapp');
+        const watsappError = document.getElementById('watsapp-error');
 
+        watsappInput.addEventListener('input', () => {
+            const watsappValue = watsappInput.value;
+
+            // Check if the input is a valid 10-digit number
+            if (!/^\d{10}$/.test(watsappValue)) {
+                watsappError.textContent = 'WhatsApp number must be a valid 10-digit number.';
+                watsappError.style.display = 'block';
+            } else {
+                watsappError.style.display = 'none';
+            }
+        });
+
+        // for ngo query -watsapp
+        const NGOwatsappInput = document.getElementById('ngo_contact');
+        const NGOwatsappError = document.getElementById('NGO-watsapp-error');
+
+        NGOwatsappInput.addEventListener('input', () => {
+            const NGOwatsappValue = NGOwatsappInput.value;
+
+            // Check if the input is a valid 10-digit number
+            if (!/^\d{10}$/.test(NGOwatsappValue)) {
+                NGOwatsappError.textContent = 'WhatsApp number must be a valid 10-digit number.';
+                NGOwatsappError.style.display = 'block';
+            } else {
+                NGOwatsappError.style.display = 'none';
+            }
+        });
+    </script>
 
     <!-- Load JS here for greater good =============================-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
