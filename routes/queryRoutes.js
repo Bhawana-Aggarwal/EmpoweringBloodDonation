@@ -14,9 +14,39 @@ router.post('/submit-user-query', async (req, res) => {
         const data = { donor_name, watsapp, email, comment } = req.body;
         const userQuery = new User_Quieres(data)
         await userQuery.save()
+
+        
+        // Configure nodemailer transporter
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            secure: true,
+            port: 465,
+            auth: {
+                user: process.env.EMAIL, // admin's email
+                pass: process.env.PASSWORD, // Sender's password
+            }
+        });
+        // Email options
+        const mailOptions = {
+            from: process.env.EMAIL,
+            to: process.env.EMAIL, // Replace with actual admin email
+            subject: 'New User Query Submitted',
+            text: `A new User query has been submitted.\n\nUser Name: ${donor_name}\nEmail: ${email}\nContact: ${watsapp}\nComment: ${comment}`
+        };
+
+        // Send email notification
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Email error:', error);
+            } else {
+                console.log('Email sent:', info.response);
+            }
+        });
+
         res.send(`
-              <script>alert('Query submission successful.');
+              <script>alert('Query submission successful. NGO has been notified.');
                window.location.href='/';</script>`);
+
 
     } catch (err) {
         console.log(err)

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,53 +8,61 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/ngo_home_style.css">
     <style>
-        .button{
-            min-width: 200px;
-            min-height: 200px;
-            padding: 10px;
-        }
-        .button :hover{
-            background-color: #721414;
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #8f2525;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
         }
 
+        .home-btn:hover {
+            background-color: #721414;
+        }
     </style>
 </head>
+
 <body>
-   
+    <a href="/" class="home-btn">Home</a>
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
         <div class="container">
             <div class="row">
-                <div class="col-3 button">
-                    <a href="/signup"><button class="btn btn-danger button">Add Donors</button></a>
+                <div class="col-6 col-md-3  button">
+                    <a href="/signup"><button class="btn btn-danger ngo_opt">Add Donor</button></a>
                 </div>
-                <div class="col-3 button">
-                    <button id="addNgo" class="btn btn-danger button">Add NGO</button>
+                <div class="col-6 col-md-3 button">
+                    <button class="btn btn-danger ngo_opt" id="addNgo">Add NGO</button>
                 </div>
-                <div class="col-3 button">
-                    <button id="listNGO" class="btn btn-danger button">List NGO</button>
+                <div class="col-6 col-md-3  button">
+                    <button class="btn btn-danger ngo_opt" id="listNGO">List NGO</button>
+
                 </div>
-                <div class="col-3 button">
-                    <button id="listNgoCamps" class="btn btn-danger button">List NGO Camps</button>
+                <div class="col-6 col-md-3 button">
+                    <button class="btn btn-danger ngo_opt" id="listNgoCamps">List NGO's Camps</button>
                 </div>
-                
             </div>
         </div>
     </div>
-    
     <script>
-        document.getElementById('addNgo').addEventListener('click', function() {
+        document.getElementById('addNgo').addEventListener('click', function () {
             window.location.href = '/admin/admin_login/admin_home/add_NGO';
         });
 
-        document.getElementById('listNGO').addEventListener('click', function() {
+        document.getElementById('listNGO').addEventListener('click', function () {
             window.location.href = '/admin/admin_login/admin_home/list_ngo';
         });
-        
-        document.getElementById('listNgoCamps').addEventListener('click', function() {
+
+        document.getElementById('listNgoCamps').addEventListener('click', function () {
             window.location.href = '/admin/admin_login/admin_home/list_ngocamps';
         });
     </script>
 </body>
+
 </html>
 
 </html>

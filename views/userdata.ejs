@@ -74,6 +74,24 @@
         .btn-back:hover {
             background-color: #721414;
         }
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8f2525;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-back:hover {
+            background-color: #721414;
+        }
     </style>
 </head>
 <body>
@@ -117,6 +135,8 @@
             </tbody>
         </table>
         
+        <!-- Back Button -->
+        <button class="btn-back" onclick="history.back()">Back</button>
     </div>
 
     

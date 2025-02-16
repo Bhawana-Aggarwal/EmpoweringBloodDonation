@@ -10,10 +10,33 @@
     <link rel="stylesheet" href="/form_style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
+    <style>
+        .home-btn {
+            position: absolute;
+            /* top: 20px;
+            left: 20px; */
+            background-color: #8f2525;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .home-btn:hover {
+            background-color: #721414;
+        }
+
+        
+    </style>
 </head>
 
 <body>
+    
     <div class="container mt-4">
+        <a href="/" class="home-btn">Home</a>
         <h1>Admin Login</h1>
         <p class="text-center fs-5 text-decoration-underline">Please fill in the following information to login as Admin :</p>
         <form action="admin_login/admin_home" method="post">

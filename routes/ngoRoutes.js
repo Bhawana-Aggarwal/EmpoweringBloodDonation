@@ -13,7 +13,6 @@ router.get('/ngo_login', (req, res) => {
     res.render('ngo_login');
 });
 
-
 // Render user data page
 router.get('/userdata', (req, res) => {
     res.render('ngo_login');
