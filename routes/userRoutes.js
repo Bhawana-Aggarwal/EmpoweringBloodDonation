@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
   res.render('home');
 });
 
+router.get('/policy', async (req, res) => {
+  res.render('policy');
+});
+
 router.get('/signup', async (req, res) => {
   res.render('signup');
 });
