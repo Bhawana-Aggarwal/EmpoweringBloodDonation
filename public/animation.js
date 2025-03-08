@@ -1,7 +1,7 @@
 console.log("animation.js loaded");
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     // Header Animation
     gsap.from(".header", {
         duration: 1,
@@ -397,6 +397,68 @@ document.addEventListener("DOMContentLoaded", function () {
             gsap.to(icon, { scale: 1, duration: 0.3, ease: "power1.inOut" });
         });
     });
-    
-    
+
+    gsap.from(".query-section", {
+        opacity: 0,
+        y: 50,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".query-section",
+            start: "top 80%", // Trigger animation when 80% of the section is visible
+            toggleActions: "play none none none"
+        }
+    });
+
+    gsap.from(".query-section h2", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.5
+    });
+
+    gsap.from(".query-section form", {
+        opacity: 0,
+        y: 30,
+        duration: 1.2,
+        ease: "power2.out",
+        stagger: 0.3,
+        delay: 0.8
+    });
+    gsap.from(".query-heading", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".query-heading",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    gsap.from(".user-query", {
+        opacity: 0,
+        x: -50,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".user-query",
+            start: "top 85%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    gsap.from(".ngo-query", {
+        opacity: 0,
+        x: 50,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".ngo-query",
+            start: "top 85%",
+            toggleActions: "play none none none"
+        }
+    });
 });
