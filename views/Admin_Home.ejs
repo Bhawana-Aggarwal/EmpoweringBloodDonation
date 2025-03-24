@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="/ngo_home_style.css">
     <style>
         .home-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
             background-color: #8f2525;
             border: none;
             padding: 10px 20px;
@@ -28,7 +25,11 @@
 </head>
 
 <body>
-    <a href="/" class="home-btn">Home</a>
+    <div class="d-flex justify-content-between align-items-center p-3" style="position: absolute; top: 0; width: 100%;">
+        <a href="/" class="home-btn">Home</a>
+        <h1><%= adminName %></h1>
+        <a href="/admin/logout" class="home-btn">Logout</a>
+    </div>
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
         <div class="container">
             <div class="row">
@@ -50,15 +51,15 @@
     </div>
     <script>
         document.getElementById('addNgo').addEventListener('click', function () {
-            window.location.href = '/admin/admin_login/admin_home/add_NGO';
+            window.location.href = '/admin/add_NGO';
         });
 
         document.getElementById('listNGO').addEventListener('click', function () {
-            window.location.href = '/admin/admin_login/admin_home/list_ngo';
+            window.location.href = '/admin/list_ngo';
         });
 
         document.getElementById('listNgoCamps').addEventListener('click', function () {
-            window.location.href = '/admin/admin_login/admin_home/list_ngocamps';
+            window.location.href = '/admin/list_ngocamps';
         });
     </script>
 </body>

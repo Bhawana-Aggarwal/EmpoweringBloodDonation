@@ -7,6 +7,15 @@ const campInfoSchema = new mongoose.Schema({
     date: {
         type: String,
         required: true,
+        validate: {
+            validator: function (value) {
+                const inputDate = new Date(value);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0); // To compare date only (ignoring time)
+                return inputDate > today;
+            },
+            message: 'The camp date must be in the future.'
+        }
     },
     location: {
         type: String,
@@ -17,8 +26,7 @@ const campInfoSchema = new mongoose.Schema({
         required: true,
     },
     organizedBy: {
-        type: String,
-        required: true,
+        type: String
     },
 }, { timestamps: true }); // This will add createdAt and updatedAt fields
 

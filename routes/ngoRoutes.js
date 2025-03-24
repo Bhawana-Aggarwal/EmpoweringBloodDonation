@@ -8,18 +8,18 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 require('dotenv').config();
 
+
+const { generateToken } = require("../utils/jwt");
+const { authenticate } = require("../middleware/auth");
+
 // Render NGO login page
-router.get('/ngo_login', (req, res) => {
+router.get('/login', (req, res) => {
     res.render('ngo_login');
 });
 
-// Render user data page
-router.get('/userdata', (req, res) => {
-    res.render('ngo_login');
-});
 
 // Login NGO
-router.post('/ngo_login/ngo_home', async (req, res) => {
+router.post('/home', async (req, res) => {
     try {
         const ngo_data = {
             ngo_email: req.body.email,
@@ -29,13 +29,25 @@ router.post('/ngo_login/ngo_home', async (req, res) => {
         if (!findNGO) {
             return res.send(`
                 <script>alert('NGO not exists');
-                window.location.href='/ngo/ngo_login';</script>`);
+                window.location.href='/ngo/login';</script>`);
         }
 
         // Compare the password
         const isPasswordMatch = await bcrypt.compare(ngo_data.ngo_password, findNGO.ngo_password);
+
+        const token = generateToken(findNGO);
+
         if (isPasswordMatch) {
-            res.render('NGO_Home');
+            
+            res.cookie("token", token, {
+                httpOnly: true,
+                secure: false, // set true in production with https
+                sameSite: 'strict',
+                maxAge: 24 * 60 * 60 * 1000
+            });
+
+            res.render('NGO_Home', { message: "Logged in successfully" , ngoName: findNGO.ngo_name});
+
         } else {
             res.send(`
                 <script>alert('Password does not match');
@@ -48,7 +60,7 @@ router.post('/ngo_login/ngo_home', async (req, res) => {
 });
 
 // GET route for displaying user data
-router.get('/ngo_login/ngo_home/userdata', async (req, res) => {
+router.get('/userdata', authenticate, async (req, res) => {
     try {
         const users = await User.find();
         res.render('userdata', { users, error: null });
@@ -60,32 +72,32 @@ router.get('/ngo_login/ngo_home/userdata', async (req, res) => {
 
 
 // Update the /camp-info route to store the camp information in the database
-router.post('/camp-info', async (req, res) => {
+router.post('/camp-info', authenticate, async (req, res) => {
     try {
         const campData = {
-            date: req.body.date,
+            date: req.body.date, // Keep the input date as YYYY-MM-DD
             location: req.body.location,
             timing: req.body.timing,
-            organizedBy: req.body.organizedBy,
+            organizedBy: req.user.ngo_name, // Securely set from authenticated NGO
         };
-        let formatteddate = campData.date;
-        const [day, month, year] = formatteddate.split('-');
-        formatteddate = `${year}-${month}-${day}`;
-        campData.date = formatteddate;
 
         const camp = new CampInfo(campData);
-        await camp.save(); // Ensure this completes before proceeding
+        await camp.save(); // This will trigger the Mongoose validation
 
-        // Send a success response
         res.status(200).json({ message: 'Camp organized successfully.' });
     } catch (err) {
         console.log(err);
-        res.status(400).send('Error organizing camp');
+        if (err.name === 'ValidationError') {
+            // Send the exact validation message to frontend
+            return res.status(400).json({ message: err.message });
+        }
+        res.status(400).json({ message: 'Error organizing camp' });
     }
 });
 
+
 // Update the /mail-them route to retrieve the latest camp information from the database
-router.post('/mail-them', async (req, res) => {
+router.post('/mail-them', authenticate, async (req, res) => {
     try {
         // Retrieve the latest camp information from the database
         const latestCampInfo = await CampInfo.findOne().sort({ createdAt: -1 });
@@ -102,7 +114,6 @@ router.post('/mail-them', async (req, res) => {
             auth: {
                 user: process.env.ADMIN_EMAIL, // Sender's email
                 pass: process.env.ADMIN_PASSWORD, // Sender's password
-
             }
         });
 
@@ -137,5 +148,14 @@ router.post('/mail-them', async (req, res) => {
         res.status(500).json({ message: 'An error occurred while sending the email.' });
     }
 });
+
+router.get('/logout', authenticate, async (req, res)=>{
+    res.clearCookie('token');
+    // res.render('home', { message: "Logged out successfully" });
+    res.send(`
+        <script>alert('Logged out successfull');
+        window.location.href='/';</script>`);
+})
+
 
 module.exports = router;

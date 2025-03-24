@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="/ngo_home_style.css">
     <style>
         .home-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
             background-color: #8f2525;
             border: none;
             padding: 10px 20px;
@@ -31,7 +28,16 @@
 </head>
 
 <body>
-    <a href="/" class="home-btn">Home</a>
+
+    <div class="d-flex justify-content-between align-items-center p-3" style="position: absolute; top: 0; width: 100%;">
+        <a href="/" class="home-btn">Home</a>
+        <h1>
+            <%= ngoName %>
+        </h1>
+        <a href="/ngo/logout" class="home-btn">Logout</a>
+    </div>
+
+
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
         <div class="container">
             <div class="row">
@@ -41,7 +47,7 @@
                 <div class="col-6 col-md-3 button">
                     <button class="btn btn-danger ngo_opt" id="userdata-btn">Donor Lists</button>
                 </div>
-                <div class="col-6 col-md-3  button">
+                <div class="col-6 col-md-3 button">
                     <button class="btn btn-danger ngo_opt" data-bs-toggle="modal"
                         data-bs-target="#campInfoModal">Organize The Camp</button>
                 </div>
@@ -76,7 +82,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="organizedBy" class="form-label camp_label">Organized By</label>
-                            <input type="text" class="form-control" name="organizedBy" required>
+                            <input type="text" class="form-control" name="organizedBy" value="<%= ngoName %>" readonly>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -94,7 +100,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="confirmMailModalLabel" style="color: #721414;">Confirm Email Sending</h5>
+                    <h5 class="modal-title" id="confirmMailModalLabel" style="color: #721414;">Confirm Email Sending
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -114,12 +121,12 @@
         // displaying Donor List
         document.getElementById('userdata-btn').addEventListener('click', async () => {
             try {
-                const response = await fetch('/ngo/ngo_login/ngo_home/userdata', {
+                const response = await fetch('/ngo/userdata', {
                     method: 'get',
                     headers: { 'Content-Type': 'application/json' }
                 });
                 if (response.ok) {
-                    window.location.href = '/ngo/ngo_login/ngo_home/userdata';
+                    window.location.href = '/ngo/userdata';
                 } else {
                     alert('Error fetching user data: ' + response.status);
                 }
@@ -144,7 +151,7 @@
 
                 if (response.ok) {
                     alert('Camp information submitted successfully!');
-                    location.reload(); // Refresh the current page
+                    location.reload();
                 } else {
                     const errorData = await response.json();
                     alert('Error submitting camp info: ' + errorData.message);
@@ -153,27 +160,6 @@
                 alert('Error submitting camp info: ' + error.message);
             }
         });
-
-        // Function to send mail
-        // async function sendMail() {
-        //     alert("Wait for Some time while mailing.");
-        //     try {
-        //         const response = await fetch('/ngo/mail-them', {
-        //             method: 'POST',
-        //             headers: { 'Content-Type': 'application/json' }
-        //         });
-
-        //         const responseData = await response.json(); // Parse the JSON response
-        //         if (response.ok) {
-        //             alert('Email sent successfully');
-        //             location.reload(); // Refresh the current page
-        //         } else {
-        //             alert('Error sending emails: ' + responseData.message); // Show the error message
-        //         }
-        //     } catch (error) {
-        //         console.log('Error sending emails: ' + error);
-        //     }
-        // }
 
         document.querySelector(".btn-mail").addEventListener("click", function () {
             // Show confirmation modal when 'Mail The Donors' is clicked

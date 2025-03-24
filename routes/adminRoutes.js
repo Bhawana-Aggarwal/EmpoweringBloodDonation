@@ -10,6 +10,10 @@ require('dotenv').config();
 
 const nodemailer = require("nodemailer");
 
+
+const { generateToken } = require("../utils/jwt");
+const { authenticate } = require("../middleware/auth");
+
 // post method for Admin registration
 // router.post('/signup', async (req, res) => {
 //     try {
@@ -40,13 +44,13 @@ const nodemailer = require("nodemailer");
 // });
 
 // Render Admin login page
-router.get('/admin_login', (req, res) => {
+router.get('/login', (req, res) => {
     res.render('admin_login');
 });
 
 
 // Login admin
-router.post('/admin_login/admin_home', async (req, res) => {
+router.post('/home', async (req, res) => {
     try {
         const admin_data = {
             admin_email: req.body.email,
@@ -56,17 +60,28 @@ router.post('/admin_login/admin_home', async (req, res) => {
         if (!findAdmin) {
             return res.send(`
                 <script>alert('Admin not exists');
-                window.location.href='/admin/admin_login';</script>`);
+                window.location.href='/admin/login';</script>`);
         }
 
         // Compare the password
         const isPasswordMatch = await bcrypt.compare(admin_data.admin_password, findAdmin.admin_password);
+
+        const token = generateToken(findAdmin);
+
         if (isPasswordMatch) {
-            res.render('Admin_Home');
+            // res.render('Admin_Home');
+            res.cookie("token", token, {
+                httpOnly: true,
+                secure: false, // set true in production with https
+                sameSite: 'strict',
+                maxAge: 24 * 60 * 60 * 1000
+            });
+
+            res.render('Admin_Home', { message: "Logged in successfully", adminName: findAdmin.admin_name})
         } else {
             res.send(`
                 <script>alert('Password does not match');
-                window.location.href='/admin/admin_login';</script>`);
+                window.location.href='/admin/login';</script>`);
         }
     } catch (err) {
         console.log(err);
@@ -74,12 +89,12 @@ router.post('/admin_login/admin_home', async (req, res) => {
     }
 });
 
-router.get('/admin_login/admin_home/add_NGO', async (req, res) => {
+router.get('/add_NGO',authenticate, async (req, res) => {
     res.render('add_NGO');
 });
 
 // post method for NGO registration
-router.post('/admin_login/admin_home/add_NGO', async (req, res) => {
+router.post('/add_NGO',authenticate, async (req, res) => {
     try {
         const { ngo_name, ngo_email, ngo_password } = req.body;
 
@@ -100,7 +115,6 @@ router.post('/admin_login/admin_home/add_NGO', async (req, res) => {
         });
 
         await newNgo.save();
-
 
         // Configure nodemailer transporter
         const transporter = nodemailer.createTransport({
@@ -133,7 +147,7 @@ router.post('/admin_login/admin_home/add_NGO', async (req, res) => {
         // res.status(201).json({ message: "NGO Registered Successfully" });
         res.send(`
             <script>alert('NGO Registered successful.');
-            window.location.href='/admin/admin_login';</script>`);
+            window.location.href='/admin/login';</script>`);
 
     } catch (err) {
         console.log(err);
@@ -141,7 +155,7 @@ router.post('/admin_login/admin_home/add_NGO', async (req, res) => {
     }
 });
 
-router.get('/admin_login/admin_home/list_ngo', async (req, res) => {
+router.get('/list_ngo',authenticate, async (req, res) => {
     try {
         const ngos = await ngo_collection.find();
         res.render('list_ngo', { ngos, error: null });
@@ -151,7 +165,7 @@ router.get('/admin_login/admin_home/list_ngo', async (req, res) => {
     }
 });
 
-router.get('/admin_login/admin_home/list_ngocamps', async (req, res) => {
+router.get('/list_ngocamps',authenticate, async (req, res) => {
     try {
         const camps = await CampInfo.find();
         res.render('ngo_camp_list', { camps, error: null });
@@ -161,5 +175,12 @@ router.get('/admin_login/admin_home/list_ngocamps', async (req, res) => {
     }
 });
 
+router.get('/logout', authenticate, async (req, res)=>{
+    res.clearCookie('token');
+    // res.render('home', { message: "Logged out successfully" });
+    res.send(`
+        <script>alert('Logged out successfull');
+        window.location.href='/';</script>`);
+})
 
 module.exports = router;
