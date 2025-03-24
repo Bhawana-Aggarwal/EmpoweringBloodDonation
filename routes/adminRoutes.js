@@ -1,15 +1,14 @@
 // admin pannel Routes
 const express = require('express');
+const router = express.Router();
 const bcrypt = require('bcrypt');
-const User = require('../model/model');
+
 const ngo_collection = require('../model/ngo_model'); // Adjust the path if necessary
 const admin_collection = require('../model/admin_model');
 const CampInfo = require('../model/camp_model');
-const router = express.Router();
+
 require('dotenv').config();
-
 const nodemailer = require("nodemailer");
-
 
 const { generateToken } = require("../utils/jwt");
 const { authenticate } = require("../middleware/auth");

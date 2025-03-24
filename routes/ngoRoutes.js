@@ -51,7 +51,7 @@ router.post('/home', async (req, res) => {
         } else {
             res.send(`
                 <script>alert('Password does not match');
-                window.location.href='/ngo/ngo_login';</script>`);
+                window.location.href='/ngo/login';</script>`);
         }
     } catch (err) {
         console.log(err);
@@ -78,7 +78,7 @@ router.post('/camp-info', authenticate, async (req, res) => {
             date: req.body.date, // Keep the input date as YYYY-MM-DD
             location: req.body.location,
             timing: req.body.timing,
-            organizedBy: req.user.ngo_name, // Securely set from authenticated NGO
+            organizedBy: req.body.organizedBy // Securely set from authenticated NGO
         };
 
         const camp = new CampInfo(campData);
